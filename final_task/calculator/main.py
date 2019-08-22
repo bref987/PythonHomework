@@ -12,7 +12,7 @@ args = parser.parse_args()
 def main(i=args.indir):
         
     postf = infixToPosfix.infixToPostfix(i)
-    print (postf)
+    #print (postf)
     print (postfixEvaluation.postfixEval(postf))
 
         

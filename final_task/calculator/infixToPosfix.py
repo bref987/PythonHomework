@@ -1,5 +1,5 @@
-from new_package import inputFilter
-from new_package import stackClass
+from calculator import inputFilter
+from calculator import stackClass
 
 
 def infixToPostfix(infixexpr):

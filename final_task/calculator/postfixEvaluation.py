@@ -1,4 +1,4 @@
-from new_package import stackClass
+from calculator import stackClass
 
 def postfixEval(postfixExpr):
     operators = "+-*//^%"

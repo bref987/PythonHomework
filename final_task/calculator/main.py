@@ -1,6 +1,6 @@
 import argparse
-from new_package import infixToPosfix
-from new_package import postfixEvaluation
+from calculator import infixToPosfix
+from calculator import postfixEvaluation
 
 parser = argparse.ArgumentParser(description='test')
 parser.add_argument('indir', type=str, help='inp')

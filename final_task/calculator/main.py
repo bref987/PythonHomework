@@ -11,7 +11,7 @@ args = parser.parse_args()
 def main(i=args.expression):
         
     postf = infixToPostfix(i)
-    print (postf)
+    #print (postf)
     print (postfixEval(postf))
 
         

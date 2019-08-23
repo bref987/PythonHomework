@@ -1,25 +1,34 @@
-from calculator import inputFilter
-from calculator import stackClass
+from calculator.stackClass import Stack
+from calculator.stringParser import parser
 
 
 def infixToPostfix(infixexpr):
-    operators = "(+*-//^%)"
-    prec = {}
-    prec["^"] = 4
-    prec["*"] = 3
-    prec["/"] = 3
-    prec["%"] = 3
-    prec["//"] = 3
-    prec["+"] = 2
-    prec["-"] = 2
-    prec["("] = 1
-    opStack = stackClass.Stack()
+#    operators = "(+*-//^%)"
+    prec = {
+        "(":  0,
+        ")":  0,
+        "==": 1,
+        "!=": 1, 
+        "<":  2,
+        ">=": 2,
+        ">":  2, 
+        "<=": 2,
+        "+":  3,
+        "-":  3,
+        "*":  4,
+        "/":  4,
+        "//": 4,
+        "%":  4,
+        "^":  5  
+    }
+  
+    opStack = Stack()
     postfixList = []
     
-    tokenList = inputFilter.filterString(infixexpr)
+    tokenList = parser(infixexpr)
  
     for token in tokenList:
-        if token not in operators:
+        if token not in prec.keys():
             postfixList.append(token)
         elif token == '(':
             opStack.push(token)
@@ -29,48 +38,11 @@ def infixToPostfix(infixexpr):
                 postfixList.append(topToken)
                 topToken = opStack.pop()
         else:
-            while (not opStack.isEmpty()) and \
-                                        (prec[opStack.peek()] >= prec[token]):
+            while (not opStack.isEmpty()) and (prec[opStack.peek()] >= prec[token]):
                 postfixList.append(opStack.pop())
             opStack.push(token)
 
     while not opStack.isEmpty():
         postfixList.append(opStack.pop())
     return " ".join(postfixList)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

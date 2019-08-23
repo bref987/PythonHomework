@@ -1,35 +1,35 @@
-from calculator import stackClass
+from calculator.stackClass import Stack
+
+operators = {
+    "+": (lambda a, b: a + b),
+    "-": (lambda a, b: a - b),
+    "*": (lambda a, b: a * b),
+    "/": (lambda a, b: a / b),
+    "//": (lambda a, b: a // b),
+    "^": (lambda a, b: a ** b),
+    "%": (lambda a, b: a % b),
+    "<": (lambda a, b: a < b),
+    "<=": (lambda a, b: a <= b),
+    "==": (lambda a, b: a == b),
+    "!=": (lambda a, b: a != b),
+    ">=": (lambda a, b: a >= b),
+    ">": (lambda a, b: a > b)
+}
 
 def postfixEval(postfixExpr):
-    operators = "+-*//^%"
-    operandStack = stackClass.Stack()
+
+    operandStack = Stack()
     tokenList = postfixExpr.split()
 
     for token in tokenList:
-        if token not in operators:
+        if token not in operators.keys():
             operandStack.push(int(token)) if ("." not in token) \
                 else operandStack.push(float(token))
         else:
             operand2 = operandStack.pop()
             operand1 = operandStack.pop()
-            
-            result = doMath(token, operand1, operand2)
-            
+            result = operators[token](operand1, operand2)
             operandStack.push(result)
     return operandStack.pop()
 
-def doMath(op, op1, op2):
-    if op == "^": 
-        return op1 ** op2
-    elif op == "*": 
-        return op1 * op2 
-    elif op == "/":
-        return op1 / op2
-    elif op == "%": 
-        return op1 % op2 
-    elif op == "//":
-        return op1 // op2
-    elif op == "+":
-        return op1 + op2
-    else:
-        return op1 - op2
+

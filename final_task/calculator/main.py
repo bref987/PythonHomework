@@ -1,21 +1,19 @@
 import argparse
-from calculator import infixToPosfix
-from calculator import postfixEvaluation
+from calculator.infixConversion import infixToPostfix
+from calculator.postfixEvaluation import postfixEval
 
-parser = argparse.ArgumentParser(description='test')
-parser.add_argument('indir', type=str, help='inp')
-#parser.add_argument('outdir', type=int, help='Output dir for image')
+parser = argparse.ArgumentParser(description='pure-python command-line calculator', prog='pycalc')
+parser.add_argument('expression', type=str, help='expression string to evaluate')
 args = parser.parse_args()
 #print(args.indir)
 
 
-def main(i=args.indir):
+def main(i=args.expression):
         
-    postf = infixToPosfix.infixToPostfix(i)
-    #print (postf)
-    print (postfixEvaluation.postfixEval(postf))
+    postf = infixToPostfix(i)
+    print (postf)
+    print (postfixEval(postf))
 
         
 #if __name__ == "__main__":
 #        main(i)
-

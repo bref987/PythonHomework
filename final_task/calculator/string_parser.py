@@ -6,7 +6,7 @@ def parser(infix_expr):
     return replace_math_const(expression_list)
 
 def parser_expr(infix):
-    operators = "()+-*//^%<<==!=>=>"
+    operators = "()+-*//^%<<==!=>=>,"
     operators1 = "+-*//^%<<==!=>=>"
     nli = ""
     token_list_bef = " ".join(infix).split()

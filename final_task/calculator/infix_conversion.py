@@ -3,8 +3,8 @@ from calculator.string_parser import parser
 
 
 def infix_postfix(infixexpr):
-#    operators = "(+*-//^%)"
     prec = {
+        ",": 1,
         "(":  0,
         ")":  0,
         "==": 1,
@@ -19,7 +19,9 @@ def infix_postfix(infixexpr):
         "/":  4,
         "//": 4,
         "%":  4,
-        "^":  5  
+        "^":  5,
+        "abs": 6,
+        "round": 6
     }
   
     op_stack = Stack()

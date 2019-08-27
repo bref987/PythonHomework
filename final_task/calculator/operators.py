@@ -29,7 +29,9 @@ operators = {
     "!=": operator.ne,
     ">=": operator.ge,
     ">": operator.gt,
-    ",": (lambda a,b: (a, b))
+    ",": (lambda a,b: (a, b)),
+    "^-": (lambda a, b: a ** (-b))
+    
 }
 
 math_const = {
@@ -52,7 +54,8 @@ func = {
     "log10": (lambda a: math.log10(a) if (isint(a) or isfloat(a)) \
                                     else math.log10(a[0],a[1])),
     "log2": (lambda a: math.log2(a) if (isint(a) or isfloat(a)) \
-                                    else math.log2(a[0],a[1]))
+                                    else math.log2(a[0],a[1])),
+    "um": (lambda a, b=0: b - a)
 }
 
 prec = {
@@ -71,7 +74,7 @@ prec = {
         "/":  4,
         "//": 4,
         "%":  4,
-        "^":  5,
+        "^":  8,
         "abs": 6,
         "round": 6,
         "sin": 6,
@@ -79,6 +82,8 @@ prec = {
         "pow": 6,
         "log": 6,
         "log10": 6,
-        "log2": 6
+        "log2": 6,
+        "um": 6,
+         "^-": 8
     }
   

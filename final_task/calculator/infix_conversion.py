@@ -1,7 +1,8 @@
 from calculator.stack_class import Stack
 from calculator.string_parser import parser
 from calculator.operators import prec
-
+from calculator.operators import isint
+from calculator.operators import isfloat
 
 def infix_postfix(infixexpr):
     

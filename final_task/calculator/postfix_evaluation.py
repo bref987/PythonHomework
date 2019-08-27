@@ -1,6 +1,9 @@
 from calculator.stack_class import Stack
 from calculator.operators import operators
 from calculator.operators import func
+from calculator.operators import prec
+from calculator.operators import isint
+from calculator.operators import isfloat
 
 def postfix_eval(postfixExpr):
 
@@ -9,11 +12,9 @@ def postfix_eval(postfixExpr):
 
     for token in token_list:
         
-        if token not in operators.keys() and token not in func.keys():
+        if token not in prec.keys():
             operand_stack.push(int(token)) if token.isdigit() \
-                else operand_stack.push(float(token))
-        
-                
+                else operand_stack.push(float(token))     
         else:
             if token in func.keys():
                 operand_f = operand_stack.pop()

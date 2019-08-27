@@ -11,7 +11,7 @@ args = parser.parse_args()
 def main(i=args.expression):
         
     postf = infix_postfix(i)
-    print (postf)
+#    print (postf)
     print (postfix_eval(postf))
         
 #if __name__ == "__main__":

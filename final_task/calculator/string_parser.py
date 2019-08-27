@@ -50,11 +50,11 @@ def unary_op(list_um):
         if list_um[i] == "-" and i == 0:
             list_um.pop(0)
             list_um.insert(0, "um")
-            list_um.insert(0, "0")  
+#            list_um.insert(0, "0")  
         elif list_um[i] == "-" and list_um[i-1] in prec.keys():
             list_um.pop(i)
             list_um.insert(i, "um")
-            list_um.insert(i, "0")
+#            list_um.insert(i, "0")
     return list_um
 
 

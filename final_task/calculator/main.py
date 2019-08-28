@@ -5,7 +5,7 @@ from calculator.postfix_evaluation import postfix_eval
 def main():
     input = parse_args() 
     postf = infix_postfix(input)
-    print (postf)
+#    print (postf)
     print (postfix_eval(postf))
         
 if __name__ == "__main__":

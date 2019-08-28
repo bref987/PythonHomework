@@ -63,7 +63,7 @@ def poly_op(s):
             lent += 1
     new_lent = lent + len(s) 
     for i in range(new_lent):        
-        if s[i] in sig and s[i+1] in prec.keys():
+        if s[i] in sig and s[i+1] in "+-*//^%<<==!=>=>/-++--+--+^^^^^^":
             s.insert((i+1), "0")        
     return s
 

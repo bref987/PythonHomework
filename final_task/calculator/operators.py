@@ -35,7 +35,8 @@ operators = {
     "-+": operator.sub,
     "--": operator.add,
     "++": operator.add,
-    "^^": operator.pow
+    "^^": operator.pow,
+    "/-": (lambda a,b: a / -b)
 }
 
 math_const = {
@@ -75,6 +76,7 @@ prec = {
     "+":  3,
     "-":  3,
     "*":  4,
+    "/-": 4,
     "/":  4,
     "//": 4,
     "%":  4,

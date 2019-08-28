@@ -68,22 +68,8 @@ def poly_op(s):
     return s
 
 def degree(list):
-    deg = "^^^^^"
-    count = 0
-    start = 0
+    deg = "^"
     for i in range(len(list)-2):
-        if list[i] in deg and list[i+2] in deg:    
-            count += 1
-            start = i
-        else:
-            count += 0
-    start += 2
-    first_index = start-count*2
-    mul = 1
-
-    while count >= 0:
-        list[first_index] = "^"*mul
-        mul +=1
-        first_index += 2
-        count -= 1        
-    return list
+        if list[i] in deg and list[i+2] in deg:
+            list[i+2] = "^^"
+    return list   

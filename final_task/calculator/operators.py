@@ -35,11 +35,7 @@ operators = {
     "-+": operator.sub,
     "--": operator.add,
     "++": operator.add,
-    "^^": operator.pow,
-    "^^^": operator.pow,
-    "^^^^": operator.pow,
-    "^^^^^": operator.pow,
-    "^^^^^^": operator.pow
+    "^^": operator.pow
 }
 
 math_const = {
@@ -97,9 +93,5 @@ prec = {
     "++": 3,
     "+-": 3,
     "-+": 3,
-    "^^": 9,
-    "^^^": 10,
-    "^^^^": 11,
-    "^^^^^": 12,
-    "^^^^^^": 13
+    "^^": 9
     }

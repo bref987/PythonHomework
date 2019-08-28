@@ -18,19 +18,23 @@ def parser(infix_expr):
     return expression_um
 
 def parser_expr(infix):
-    operat = prec.keys()
-    operat1 = operators.keys()
+    oper = "()+-*//^%<<==!=>=>,/-++--+--+"
+    oper1 =  "+-*//^%<<==!=>=>/-++--+--+"
     parse_string = ""
     token_list_bef = " ".join(infix).split()
     for i in (range(len(token_list_bef))):
-        if (token_list_bef[i] not in operat):
-            parse_string += token_list_bef[i]        
-        elif(token_list_bef[i] in operat1) and \
-        (token_list_bef[i + 1] in operat1):
-            parse_string += " " + token_list_bef[i] + token_list_bef[i + 1] + " "
+
+        if (token_list_bef[i] not in oper) and (token_list_bef[i] not in func):
+            parse_string += token_list_bef[i]
+                
+        elif(token_list_bef[i] in oper1) and \
+        (token_list_bef[i + 1] in oper1):
+                    
+            parse_string += " " + token_list_bef[i] + token_list_bef[i+1] + " "
             token_list_bef[i + 1] = " "
         else:
             parse_string += " " + token_list_bef[i] + " " 
+    
     return parse_string.split()
 
 def replace_math_const(list):

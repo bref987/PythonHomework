@@ -14,10 +14,10 @@ def parser(infix_expr):
     expression_list = parser_expr(infix_expr)
     expression_const = replace_math_const(expression_list)
     expression_poly = poly_op(expression_const)
-    expression_degree = degree(expression_poly)
-    expression_um = unary_op(expression_degree)
+    expression_um = unary_op(expression_poly)
+    expression_degree = degree(expression_um)
     
-    return expression_um
+    return expression_degree
 
 def parser_expr(infix):
     oper = "()+-*//^%<<==!=>=>,/-++--+--+^^^^^^^^"

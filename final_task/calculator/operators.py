@@ -58,15 +58,12 @@ func = {
     "sin": (lambda a: math.sin(a)),
     "cos": (lambda a: math.cos(a)),
     "pow": (lambda a: math.pow(a[0], a[1])),
-    "log": (
-            lambda a: math.log(a) if (isint(a) or isfloat(a))
-            else math.log(a[0], a[1])),
-    "log10": (
-            lambda a: math.log10(a) if (isint(a) or isfloat(a))
-            else math.log10(a[0], a[1])),
-    "log2": (
-            lambda a: math.log2(a) if (isint(a) or isfloat(a))
-            else math.log2(a[0], a[1])),
+    "log": (lambda a: math.log(a[0], a[1]) if isinstance(a, tuple)
+            else math.log(a)),
+    "log10":(lambda a: math.log(a[0], a[1]) if isinstance(a, tuple)
+            else math.log(a)),
+    "log2": (lambda a: math.log(a[0], a[1]) if isinstance(a, tuple)
+            else math.log(a)),
     "um": (lambda a, b=0: b - a)
 }
 

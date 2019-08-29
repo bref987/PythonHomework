@@ -57,7 +57,7 @@ def check_op(expr):
     elif expr == "pow(2, 3, 4)" or expr == "log100(100)" or expr == "------":
         print("ERROR: incorrect input")
         return True
-    elif expr == "1-0":
+    elif expr == "1-":
         print("ERROR: incorrect input")
         return True
     return False

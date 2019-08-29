@@ -5,7 +5,7 @@ from calculator.errors import check_length
 from calculator.errors import check_spaces
 from calculator.errors import bracket
 from calculator.errors import check_digits
-
+from calculator.errors import check_op
 
 def main():    
     input = parse_args()
@@ -16,6 +16,8 @@ def main():
     if bracket(input):
         input = ""
     if check_digits(input):
+        input = ""
+    if check_op(input):
         input = ""
     if input != "":
         postf = infix_postfix(input)

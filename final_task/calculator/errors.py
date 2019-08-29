@@ -44,3 +44,20 @@ def check_digits(expr):
                 print("ERROR: incorrect input")
                 return True
     return False
+
+def check_op(expr):
+    ex = " ".join(expr).split(" ")
+    count = 0;
+    for i in range(len(ex)):
+        if len(ex) == 2 and ex[0] in operators.keys() \
+                    or ex[1] in operators.keys():
+            print("ERROR: incorrect input")
+            return True
+        if ex[0] == "=":
+            print("ERROR: incorrect input")
+            return True
+        if ex[len(ex)-1] in operators.keys():
+            print("ERROR: incorrect input")
+            return True
+    return False
+            

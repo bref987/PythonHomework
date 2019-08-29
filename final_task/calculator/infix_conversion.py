@@ -1,12 +1,9 @@
 from calculator.stack_class import Stack
 from calculator.string_parser import parser
 from calculator.operators import prec
-#from calculator.operators import isint
-#from calculator.operators import isfloat
+
 
 def infix_postfix(infixexpr):
-    
-    
     op_stack = Stack()
     postfix_list = []
     token_list = parser(infixexpr)
@@ -25,7 +22,6 @@ def infix_postfix(infixexpr):
                                         (prec[op_stack.peek()] >= prec[token]):
                 postfix_list.append(op_stack.pop())
             op_stack.push(token)
-
     while not op_stack.isEmpty():
         postfix_list.append(op_stack.pop())
     return " ".join(postfix_list)

@@ -2,6 +2,22 @@ import math
 import operator
 
 
+def isint(x):
+    try:
+        int(x)
+        return True
+    except ValueError:
+        return False
+
+
+def isfloat(x):
+    try:
+        float(x)
+        return True
+    except ValueError:
+        return False
+
+
 operators = {
     "+": operator.add,
     "-": operator.sub,

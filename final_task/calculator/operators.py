@@ -37,16 +37,17 @@ math_const = {
 func = {
     "abs": abs,
     "round": (
-            lambda a: round(a) if (isint(a) or isfloat(a))
-            else round(a[0], a[1])),
+            lambda a: round(a[0], a[1]) if isinstance(a, tuple) else round(a)),
     "sin": (lambda a: math.sin(a)),
     "cos": (lambda a: math.cos(a)),
     "pow": (lambda a: math.pow(a[0], a[1])),
     "log": (lambda a: math.log(a[0], a[1]) if isinstance(a, tuple)
             else math.log(a)),
-    "log10": (lambda a: math.log10(a[0], a[1]) if isinstance(a, tuple)
+    "log10": (
+            lambda a: math.log10(a[0], a[1]) if isinstance(a, tuple)
             else math.log10(a)),
-    "log2": (lambda a: math.log2(a[0], a[1]) if isinstance(a, tuple)
+    "log2": (
+            lambda a: math.log2(a[0], a[1]) if isinstance(a, tuple)
             else math.log2(a)),
     "um": (lambda a, b=0: b - a)
 }

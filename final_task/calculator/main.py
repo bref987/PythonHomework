@@ -7,7 +7,8 @@ from calculator.errors import bracket
 from calculator.errors import check_digits
 from calculator.errors import check_op
 
-def main():    
+
+def main():
     input = parse_args()
     if check_length(input):
         input = ""

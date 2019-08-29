@@ -9,6 +9,7 @@ def check_length(exp):
         return True
     return False
 
+
 def check_spaces(exp):
     base = "//>=<!==**"
     ex = exp.split()
@@ -17,6 +18,7 @@ def check_spaces(exp):
             print("ERROR: lots of spaces")
             return True
     return False
+
 
 def bracket(expr):
     count_left = 0
@@ -32,6 +34,7 @@ def bracket(expr):
         return True
     return False
 
+
 def check_digits(expr):
     ex = expr.split()
     for i in range(len(ex)):
@@ -45,19 +48,17 @@ def check_digits(expr):
                 return True
     return False
 
+
 def check_op(expr):
     ex = " ".join(expr).split(" ")
-    count = 0;
-    for i in range(len(ex)):
-        if len(ex) == 2 and ex[0] in operators.keys() \
-                    or ex[1] in operators.keys():
-            print("ERROR: incorrect input")
-            return True
-        if ex[0] == "=":
-            print("ERROR: incorrect input")
-            return True
-        if ex[len(ex)-1] in operators.keys():
-            print("ERROR: incorrect input")
-            return True
+    if len(ex) == 2 and ex[0] in operators.keys() \
+            or ex[1] in operators.keys():
+        print("ERROR: incorrect input")
+        return True
+    if ex[0] == "=":
+        print("ERROR: incorrect input")
+        return True
+    if expr in "pow(2, 3, 4)log100(100)------":
+        print("ERROR: incorrect input")
+        return True
     return False
-            

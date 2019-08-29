@@ -2,22 +2,6 @@ import math
 import operator
 
 
-def isint(x):
-    try:
-        int(x)
-        return True
-    except ValueError:
-        return False
-
-
-def isfloat(x):
-    try:
-        float(x)
-        return True
-    except ValueError:
-        return False
-
-
 operators = {
     "+": operator.add,
     "-": operator.sub,
@@ -60,10 +44,10 @@ func = {
     "pow": (lambda a: math.pow(a[0], a[1])),
     "log": (lambda a: math.log(a[0], a[1]) if isinstance(a, tuple)
             else math.log(a)),
-    "log10":(lambda a: math.log(a[0], a[1]) if isinstance(a, tuple)
-            else math.log(a)),
-    "log2": (lambda a: math.log(a[0], a[1]) if isinstance(a, tuple)
-            else math.log(a)),
+    "log10": (lambda a: math.log10(a[0], a[1]) if isinstance(a, tuple)
+            else math.log10(a)),
+    "log2": (lambda a: math.log2(a[0], a[1]) if isinstance(a, tuple)
+            else math.log2(a)),
     "um": (lambda a, b=0: b - a)
 }
 

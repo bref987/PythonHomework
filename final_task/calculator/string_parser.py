@@ -1,5 +1,5 @@
 from calculator.operators import math_const
-from calculator.operators import prec
+#from calculator.operators import prec
 #from calculator.operators import operators
 from calculator.operators import func
 
@@ -47,7 +47,7 @@ def unary_op(list_um):
             list_um.pop(0)
             list_um.insert(0, "um")
 #            list_um.insert(0, "0")  
-        elif list_um[i] == "-" and list_um[i-1] in prec.keys():
+        elif list_um[i] == "-" and list_um[i-1] in "(" and list_um[i-1] not in ")":
             list_um.pop(i)
             list_um.insert(i, "um")
 #            list_um.insert(i, "0")

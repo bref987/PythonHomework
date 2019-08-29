@@ -11,7 +11,7 @@ def postfix_eval(postfixExpr):
     operand_stack = Stack()
     token_list = postfixExpr.split()
     for token in token_list:
-        if token not in prec.keys():       #"+-*//^%<<==!=>=>/-++--+--+^^^^^^":
+        if token not in prec.keys():
             operand_stack.push(int(token)) if token.isdigit() \
                 else operand_stack.push(float(token))     
         else:

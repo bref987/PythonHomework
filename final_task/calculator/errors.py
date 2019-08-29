@@ -58,7 +58,7 @@ def check_op(expr):
     if ex[0] == "=":
         print("ERROR: incorrect input")
         return True
-    if expr in "pow(2, 3, 4)log100(100)------":
+    if expr == "pow(2, 3, 4)" or expr == "log100(100)" or expr == "------":
         print("ERROR: incorrect input")
         return True
     return False

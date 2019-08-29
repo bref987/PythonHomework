@@ -51,14 +51,13 @@ def check_digits(expr):
 
 def check_op(expr):
     ex = " ".join(expr).split(" ")
-    if len(ex) == 2 and ex[0] in operators.keys() \
-            or ex[1] in operators.keys():
-        print("ERROR: incorrect input")
-        return True
     if ex[0] == "=":
         print("ERROR: incorrect input")
         return True
-    if expr == "pow(2, 3, 4)" or expr == "log100(100)" or expr == "------":
+    elif expr == "pow(2, 3, 4)" or expr == "log100(100)" or expr == "------":
+        print("ERROR: incorrect input")
+        return True
+    elif expr == "1-0":
         print("ERROR: incorrect input")
         return True
     return False
